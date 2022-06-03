@@ -5,7 +5,7 @@ import { createServer } from 'miragejs'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMemes } from './app/memesSlice'
-import MEMES from './memes_mock'
+import MEMES from './constans/memes_mock'
 import {
     favoriteFilter,
     hotFilter,
@@ -100,8 +100,11 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchMemes())
-        setIsPending(!pending)
-    }, [dispatch, pending])
+        //fake loading
+        setTimeout(() => {
+            setIsPending(!pending)
+        }, 1000)
+    }, [])
 
     // TODO dodać loader
     return (
@@ -144,7 +147,7 @@ function App() {
                     </StyledNavLink>
                 </Menu>
                 <MemesListContainer>
-                    <Outlet />
+                    {pending ? <div>LOADING...</div> : <Outlet />}
                 </MemesListContainer>
             </MainContainer>
         </AppContainer>
