@@ -11,6 +11,11 @@ import {
     hotFilter,
     regularFilter,
 } from './components/MemesList'
+import { AiOutlineFire } from 'react-icons/ai'
+
+import { IoMdHeartEmpty } from 'react-icons/io'
+
+import { TbMoodCrazyHappy } from 'react-icons/tb'
 
 const AppContainer = styled.div`
     display: flex;
@@ -31,10 +36,10 @@ const MainContainer = styled.div`
 `
 
 const Title = styled.div`
-    font-size: 3em;
-    margin: 2em;
+    font-size: 6rem;
     text-align: center;
     color: #e8bf6a;
+    margin: 2rem;
 `
 
 const Menu = styled.div`
@@ -57,12 +62,19 @@ const MemesListContainer = styled.div`
 `
 
 const StyledNavLink = styled(NavLink)`
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 1em;
-    margin: 2em;
-    width: 200px;
-    height: 200px;
-    background-color: yellow;
+    margin: 1rem 2rem;
+    background-color: #365880;
+    color: #baba99;
+    border-radius: 1.5rem;
+    width: 70%;
+    height: 12rem;
+    font-size: 2.5rem;
+    text-decoration: none;
 `
 
 let server = createServer()
@@ -85,20 +97,39 @@ function App() {
     useEffect(() => {
         dispatch(fetchMemes())
         setIsPending(!pending)
-    }, [])
+    }, [dispatch, pending])
 
     // TODO dodać loader
     return (
         <AppContainer>
             <MainContainer>
                 <Menu>
-                    <Title>MEM VOTER SITE</Title>
-                    <StyledNavLink to="/hot">HOT {hotCount}</StyledNavLink>
+                    <Title>MEM VOTE SITE</Title>
+                    <StyledNavLink to="/hot">
+                        <div>
+                            HOT <AiOutlineFire />
+                        </div>
+                        {hotCount === 0 ? <div> </div> : <div>{hotCount}</div>}
+                    </StyledNavLink>
                     <StyledNavLink to="/regular">
-                        REGULAR {regularCount}
+                        <div>
+                            REGULAR <TbMoodCrazyHappy />
+                        </div>
+                        {regularCount === 0 ? (
+                            <div> </div>
+                        ) : (
+                            <div>{regularCount}</div>
+                        )}
                     </StyledNavLink>
                     <StyledNavLink to="/favorite">
-                        FAVORITES {favoriteCount}
+                        <div>
+                            FAVORITE <IoMdHeartEmpty />
+                        </div>
+                        {favoriteCount === 0 ? (
+                            <div> </div>
+                        ) : (
+                            <div>{favoriteCount}</div>
+                        )}
                     </StyledNavLink>
                 </Menu>
                 <MemesListContainer>

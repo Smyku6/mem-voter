@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const NoMemes = styled.div`
-    color: yellow;
+    display: flex;
+    color: #e8bf6a;
+    font-size: 4rem;
+    justify-content: center;
+    margin-top: 3rem;
 `
 
 export const regularFilter = (meme) => meme.type === 'regular'
@@ -36,4 +40,4 @@ function MemesList({ type }) {
     )
 }
 
-export default MemesList;
+export default MemesList
