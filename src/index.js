@@ -4,19 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Hot from "./screens/Hot";
-import Regular from "./screens/Regular";
+import {store} from "./app/store";
+import {Provider} from 'react-redux'
+import MemesList from "./components/MemesList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="hot" element={<Hot />} />
-        <Route path="regular" element={<Regular />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App/>}>
+            <Route path="/" element={<MemesList type="regular"/>}/>
+            <Route path="regular" element={<MemesList type="regular"/>}/>
+            <Route path="hot" element={<MemesList type="hot"/>}/>
+            <Route path="favorite" element={<MemesList type="favorite"/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

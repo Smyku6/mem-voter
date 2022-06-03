@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
+import {
+  addToFavorites,
+  downvote,
+  removeFromFavorites,
+  saveToLocalStorage,
+  upvote
+} from "../app/memesSlice";
+import {useDispatch} from "react-redux";
 
 const MemeStyled = styled.div`
   width: 500px;
@@ -38,6 +46,7 @@ const ButtonStyled = styled.div`
   display: flex;
   flex-direction: row;
   width: 33%;
+  cursor: pointer;
 `;
 
 const ImgStyled = styled.img`
@@ -51,7 +60,8 @@ const ImgStyled = styled.img`
 
 
 function Meme(props) {
-  const {title, upvotes, downvotes, imgPath} = props.props;
+  const {id, title, upvotes, downvotes, imgPath, favorite} = props.props;
+  const dispatch = useDispatch();
 
   return (
     <MemeStyled>
@@ -60,9 +70,21 @@ function Meme(props) {
         <ImgStyled src={require(`../img/${imgPath}.jpg`)} alt="gówno"/>
       </MemImageContainerStyled>
       <ButtonsContainerStyled>
-        <ButtonStyled>{upvotes} +</ButtonStyled>
-        <ButtonStyled>{downvotes} -</ButtonStyled>
-        <ButtonStyled>ADD TO FAVORITE</ButtonStyled>
+        <ButtonStyled onClick={() => {
+          dispatch(upvote(id));
+          dispatch(saveToLocalStorage());
+        }}>{upvotes} NA TAK</ButtonStyled>
+        <ButtonStyled onClick={() => {
+          dispatch(downvote(id));
+          dispatch(saveToLocalStorage());
+        }}>{downvotes} NA NIE</ButtonStyled>
+        {!favorite ? (<ButtonStyled onClick={() => {
+          dispatch(addToFavorites(id));
+          dispatch(saveToLocalStorage());
+        }}>ADD TO FAVORITE</ButtonStyled>) : (<ButtonStyled onClick={() => {
+          dispatch(removeFromFavorites(id));
+          dispatch(saveToLocalStorage());
+        }}>REMOVE FROM FAVORITE</ButtonStyled>)}
       </ButtonsContainerStyled>
     </MemeStyled>
   );

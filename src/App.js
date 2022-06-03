@@ -1,6 +1,21 @@
 import './App.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 import styled from 'styled-components';
+import {createServer} from "miragejs"
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchMemes} from "./app/memesSlice";
+import MEMES from "./memes_mock";
+import {favoriteFilter, hotFilter, regularFilter} from "./components/MemesList";
+
+
+const AppStyled = styled.div`
+  width: 1200px;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+`;
 
 const Title = styled.div`
   font-size: 3em;
@@ -19,11 +34,8 @@ const LeftMenu = styled.div`
   align-items: center;
 `;
 
-const AppStyled = styled.div`
-  width: 400px;
-  height: 100vh;
-  background-color: #3C3F41;
-
+const MainContainer = styled.div`
+  overflow: auto;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -36,14 +48,35 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 
+let server = createServer()
+server.get("/api/memes", MEMES)
+
 function App() {
+  const dispatch = useDispatch();
+  const [pending, setIsPending] = useState(true);
+
+  const favoriteCount = useSelector((state) => state.memes.list).filter(favoriteFilter).length;
+  const hotCount = useSelector((state) => state.memes.list).filter(hotFilter).length;
+  const regularCount = useSelector((state) => state.memes.list).filter(regularFilter).length;
+
+
+  useEffect(() => {
+    dispatch(fetchMemes());
+    setIsPending(!pending);
+  }, [])
+
+// TODO dodać loader
   return (
     <AppStyled>
       <LeftMenu>
         <Title>MEM VOTER SITE</Title>
-        <StyledNavLink to="/hot">HOT</StyledNavLink>
-        <StyledNavLink to="/regular">REGULAR</StyledNavLink>
+        <StyledNavLink to="/hot">HOT {hotCount}</StyledNavLink>
+        <StyledNavLink to="/regular">REGULAR {regularCount}</StyledNavLink>
+        <StyledNavLink to="/favorite">FAVORITES {favoriteCount}</StyledNavLink>
       </LeftMenu>
+      <MainContainer>
+        <Outlet/>
+      </MainContainer>
     </AppStyled>
   );
 }
