@@ -9,6 +9,8 @@ import {
     upvote,
 } from '../app/memesSlice'
 import { useDispatch } from 'react-redux'
+import { BiUpvote, BiDownvote } from 'react-icons/bi'
+import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
 
 const MemeStyled = styled.div`
     width: 500px;
@@ -45,7 +47,7 @@ const ButtonsContainerStyled = styled.div`
 const ButtonStyled = styled.div`
     display: flex;
     flex-direction: row;
-    width: 33%;
+    width: 100px;
     cursor: pointer;
 `
 
@@ -57,6 +59,10 @@ const ImgStyled = styled.img`
     bottom: -9999px;
     margin: auto;
 `
+
+const upvoteStyle = { color: 'green', fontSize: '2em' }
+const downvoteStyle = { color: '#C1482E', fontSize: '2em' }
+const likeStyle = { color: 'red', fontSize: '5em' }
 
 function Meme(props) {
     const { id, title, upvotes, downvotes, imgPath, favorite } = props.props
@@ -75,7 +81,7 @@ function Meme(props) {
                         dispatch(saveToLocalStorage())
                     }}
                 >
-                    {upvotes} NA TAK
+                    {upvotes} <BiUpvote style={upvoteStyle} />
                 </ButtonStyled>
                 <ButtonStyled
                     onClick={() => {
@@ -83,7 +89,7 @@ function Meme(props) {
                         dispatch(saveToLocalStorage())
                     }}
                 >
-                    {downvotes} NA NIE
+                    {downvotes} <BiDownvote style={downvoteStyle} />
                 </ButtonStyled>
                 {!favorite ? (
                     <ButtonStyled
@@ -92,7 +98,7 @@ function Meme(props) {
                             dispatch(saveToLocalStorage())
                         }}
                     >
-                        ADD TO FAVORITE
+                        <FcLikePlaceholder style={likeStyle} />
                     </ButtonStyled>
                 ) : (
                     <ButtonStyled
@@ -101,7 +107,7 @@ function Meme(props) {
                             dispatch(saveToLocalStorage())
                         }}
                     >
-                        REMOVE FROM FAVORITE
+                        <FcLike style={likeStyle} />
                     </ButtonStyled>
                 )}
             </ButtonsContainerStyled>
