@@ -42,7 +42,7 @@ const Menu = styled.div`
     background-color: #3c3f41;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: fixed;
     top: 0;

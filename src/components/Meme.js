@@ -23,25 +23,31 @@ const MemeStyled = styled.div`
 `
 
 const MemTitleStyled = styled.div`
-    font-size: 3em;
+    font-size: 3rem;
+    padding: 1.5rem;
     color: #cc7832;
 `
 
 const MemImageContainerStyled = styled.div`
     font-size: 3em;
-    width: 400px;
-    height: 300px;
-    background-color: yellowgreen;
+    width: 100%;
+    background-color: #3c3f41;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
+    padding: 0 2rem;
+    border-radius: 2rem;
 `
 
 const ButtonsContainerStyled = styled.div`
+    width: 100%;
+    padding: 2rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 `
 
 const ButtonStyled = styled.div`
@@ -49,19 +55,15 @@ const ButtonStyled = styled.div`
     flex-direction: row;
     width: 100px;
     cursor: pointer;
+    align-items: center;
 `
 
 const ImgStyled = styled.img`
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    right: -9999px;
-    bottom: -9999px;
-    margin: auto;
+    width: 100%;
 `
 
-const upvoteStyle = { color: 'green', fontSize: '2em' }
-const downvoteStyle = { color: '#C1482E', fontSize: '2em' }
+const upvoteStyle = { color: '#72af60', fontSize: '4em' }
+const downvoteStyle = { color: '#c35364', fontSize: '4em' }
 const likeStyle = { color: 'red', fontSize: '5em' }
 
 function Meme(props) {
@@ -81,7 +83,8 @@ function Meme(props) {
                         dispatch(saveToLocalStorage())
                     }}
                 >
-                    {upvotes} <BiUpvote style={upvoteStyle} />
+                    <div style={upvoteStyle}>{upvotes}</div>
+                    <BiUpvote style={upvoteStyle} />
                 </ButtonStyled>
                 <ButtonStyled
                     onClick={() => {
@@ -89,7 +92,8 @@ function Meme(props) {
                         dispatch(saveToLocalStorage())
                     }}
                 >
-                    {downvotes} <BiDownvote style={downvoteStyle} />
+                    <div style={downvoteStyle}>{downvotes}</div>
+                    <BiDownvote style={downvoteStyle} />
                 </ButtonStyled>
                 {!favorite ? (
                     <ButtonStyled
