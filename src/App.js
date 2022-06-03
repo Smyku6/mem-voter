@@ -112,7 +112,6 @@ function App() {
         }, 1000)
     }, [])
 
-    // TODO dodać loader
     return (
         <AppContainer>
             <MainContainer>
