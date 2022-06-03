@@ -1,24 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {store} from "./app/store";
-import {Provider} from 'react-redux'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 import MemesList from "./components/MemesList";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App/>}>
-            <Route path="/" element={<MemesList type="regular"/>}/>
-            <Route path="regular" element={<MemesList type="regular"/>}/>
-            <Route path="hot" element={<MemesList type="hot"/>}/>
-            <Route path="favorite" element={<MemesList type="favorite"/>}/>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<MemesList type="regular" />} />
+            <Route path="regular" element={<MemesList type="regular" />} />
+            <Route path="hot" element={<MemesList type="hot" />} />
+            <Route path="favorite" element={<MemesList type="favorite" />} />
           </Route>
         </Routes>
       </BrowserRouter>
