@@ -12,10 +12,9 @@ import {
     regularFilter,
 } from './components/MemesList'
 import { AiOutlineFire } from 'react-icons/ai'
-
 import { IoMdHeartEmpty } from 'react-icons/io'
-
 import { TbMoodCrazyHappy } from 'react-icons/tb'
+import { BallTriangle } from 'react-loader-spinner'
 
 const AppContainer = styled.div`
     display: flex;
@@ -59,6 +58,9 @@ const MemesListContainer = styled.div`
     min-height: 100vh;
     width: 100%;
     background-color: #515151;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 `
 
 const StyledNavLink = styled(NavLink)`
@@ -75,6 +77,10 @@ const StyledNavLink = styled(NavLink)`
     height: 12rem;
     font-size: 2.5rem;
     text-decoration: none;
+
+    &:hover {
+        background-color: #639ade;
+    }
 `
 const CounterStyled = styled.div`
     font-size: 1.5rem;
@@ -147,7 +153,15 @@ function App() {
                     </StyledNavLink>
                 </Menu>
                 <MemesListContainer>
-                    {pending ? <div>LOADING...</div> : <Outlet />}
+                    {pending ? (
+                        <BallTriangle
+                            color="#00BFFF"
+                            height={200}
+                            width={200}
+                        />
+                    ) : (
+                        <Outlet />
+                    )}
                 </MemesListContainer>
             </MainContainer>
         </AppContainer>

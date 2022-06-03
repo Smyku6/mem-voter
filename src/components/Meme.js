@@ -30,7 +30,7 @@ const MemTitleStyled = styled.div`
 
 const MemImageContainerStyled = styled.div`
     font-size: 3em;
-    width: 100%;
+    width: 1104px;
     background-color: #3c3f41;
     display: flex;
     justify-content: center;
@@ -39,6 +39,11 @@ const MemImageContainerStyled = styled.div`
     position: relative;
     padding: 0 2rem;
     border-radius: 2rem;
+`
+const ImgStyled = styled.img`
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 `
 
 const ButtonsContainerStyled = styled.div`
@@ -56,10 +61,6 @@ const ButtonStyled = styled.div`
     width: 100px;
     cursor: pointer;
     align-items: center;
-`
-
-const ImgStyled = styled.img`
-    width: 100%;
 `
 
 const upvoteStyle = { color: '#72af60', fontSize: '4em' }
