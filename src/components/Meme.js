@@ -13,18 +13,18 @@ import { BiUpvote, BiDownvote } from 'react-icons/bi'
 import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
 
 const MemeStyled = styled.div`
-    width: 500px;
-    height: 500px;
-    background-color: #68a9c5;
+    background-color: #3c3f41;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3em;
+    margin: 3rem;
+    border-radius: 2rem;
 `
 
 const MemTitleStyled = styled.div`
     font-size: 3em;
+    color: #cc7832;
 `
 
 const MemImageContainerStyled = styled.div`

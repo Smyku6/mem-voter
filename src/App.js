@@ -12,12 +12,22 @@ import {
     regularFilter,
 } from './components/MemesList'
 
-const AppStyled = styled.div`
-    width: 1200px;
-    height: 100vh;
+const AppContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: #2b2b2b;
+`
+
+const MainContainer = styled.div`
+    width: 90%;
+    max-width: 1600px;
     background-color: black;
     display: flex;
     flex-direction: row;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
 `
 
 const Title = styled.div`
@@ -27,18 +37,23 @@ const Title = styled.div`
     color: #e8bf6a;
 `
 
-const LeftMenu = styled.div`
-    width: 400px;
-    height: 100vh;
+const Menu = styled.div`
+    height: 100%;
     background-color: #3c3f41;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 25rem;
 `
 
-const MainContainer = styled.div`
-    overflow: auto;
+const MemesListContainer = styled.div`
+    padding-left: 25rem;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #515151;
 `
 
 const StyledNavLink = styled(NavLink)`
@@ -74,22 +89,24 @@ function App() {
 
     // TODO dodać loader
     return (
-        <AppStyled>
-            <LeftMenu>
-                <Title>MEM VOTER SITE</Title>
-                <StyledNavLink to="/hot">HOT {hotCount}</StyledNavLink>
-                <StyledNavLink to="/regular">
-                    REGULAR {regularCount}
-                </StyledNavLink>
-                <StyledNavLink to="/favorite">
-                    FAVORITES {favoriteCount}
-                </StyledNavLink>
-            </LeftMenu>
+        <AppContainer>
             <MainContainer>
-                <Outlet />
+                <Menu>
+                    <Title>MEM VOTER SITE</Title>
+                    <StyledNavLink to="/hot">HOT {hotCount}</StyledNavLink>
+                    <StyledNavLink to="/regular">
+                        REGULAR {regularCount}
+                    </StyledNavLink>
+                    <StyledNavLink to="/favorite">
+                        FAVORITES {favoriteCount}
+                    </StyledNavLink>
+                </Menu>
+                <MemesListContainer>
+                    <Outlet />
+                </MemesListContainer>
             </MainContainer>
-        </AppStyled>
+        </AppContainer>
     )
 }
 
-export default App;
+export default App
