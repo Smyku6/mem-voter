@@ -76,6 +76,10 @@ const StyledNavLink = styled(NavLink)`
     font-size: 2.5rem;
     text-decoration: none;
 `
+const CounterStyled = styled.div`
+    font-size: 1.5rem;
+    color: #ffc66d;
+`
 
 let server = createServer()
 server.get('/api/memes', MEMES)
@@ -109,26 +113,33 @@ function App() {
                         <div>
                             HOT <AiOutlineFire />
                         </div>
-                        {hotCount === 0 ? <div> </div> : <div>{hotCount}</div>}
+                        {hotCount === 1 && (
+                            <CounterStyled>{hotCount} meme</CounterStyled>
+                        )}
+                        {hotCount > 1 && (
+                            <CounterStyled>{hotCount} memes</CounterStyled>
+                        )}
                     </StyledNavLink>
                     <StyledNavLink to="/regular">
                         <div>
                             REGULAR <TbMoodCrazyHappy />
                         </div>
-                        {regularCount === 0 ? (
-                            <div> </div>
-                        ) : (
-                            <div>{regularCount}</div>
+                        {regularCount === 1 && (
+                            <CounterStyled>{regularCount} meme</CounterStyled>
+                        )}
+                        {regularCount > 1 && (
+                            <CounterStyled>{regularCount} memes</CounterStyled>
                         )}
                     </StyledNavLink>
                     <StyledNavLink to="/favorite">
                         <div>
                             FAVORITE <IoMdHeartEmpty />
                         </div>
-                        {favoriteCount === 0 ? (
-                            <div> </div>
-                        ) : (
-                            <div>{favoriteCount}</div>
+                        {favoriteCount === 1 && (
+                            <CounterStyled>{favoriteCount} meme</CounterStyled>
+                        )}
+                        {favoriteCount > 1 && (
+                            <CounterStyled>{favoriteCount} memes</CounterStyled>
                         )}
                     </StyledNavLink>
                 </Menu>
