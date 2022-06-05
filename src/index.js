@@ -6,8 +6,9 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { store } from './app/store'
 import { Provider } from 'react-redux'
-import MemesList from './components/MemesList'
+import MemesList from './components/MemesList/MemesList'
 import ScrollToTop from './components/scrollToTop'
+import TYPE from './constans/TYPE'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -19,16 +20,19 @@ root.render(
                     <Route path="/" element={<App />}>
                         <Route
                             path="/"
-                            element={<MemesList type="regular" />}
+                            element={<MemesList section={TYPE.REGULAR} />}
                         />
                         <Route
-                            path="regular"
-                            element={<MemesList type="regular" />}
+                            path={TYPE.REGULAR}
+                            element={<MemesList section={TYPE.REGULAR} />}
                         />
-                        <Route path="hot" element={<MemesList type="hot" />} />
                         <Route
-                            path="favorite"
-                            element={<MemesList type="favorite" />}
+                            path={TYPE.HOT}
+                            element={<MemesList section={TYPE.HOT} />}
+                        />
+                        <Route
+                            path={TYPE.FAVORITE}
+                            element={<MemesList section={TYPE.FAVORITE} />}
                         />
                     </Route>
                 </Routes>

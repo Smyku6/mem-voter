@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import TXT from '../constans/TXT'
+import TYPE from '../constans/TYPE'
 
 const initialState = {
     loading: false,
@@ -8,16 +10,19 @@ const initialState = {
 const votesDifference = 5
 
 const memesSlice = createSlice({
-    name: 'memes',
+    name: `${TXT.REDUX_STORE_NAME}`,
     initialState,
     reducers: {
         saveToLocalStorage: (state) => {
-            window.localStorage.setItem('memes', JSON.stringify(state.list))
+            window.localStorage.setItem(
+                `${TXT.LOCAL_STORAGE_NAME}`,
+                JSON.stringify(state.list)
+            )
         },
 
         getFromLocalStorage: (state) => {
             const listFromLocalStorage = JSON.parse(
-                window.localStorage.getItem('memes')
+                window.localStorage.getItem(`${TXT.LOCAL_STORAGE_NAME}`)
             )
             console.log(listFromLocalStorage)
             return { ...state, list: listFromLocalStorage }
@@ -40,7 +45,7 @@ const memesSlice = createSlice({
                         return {
                             ...meme,
                             upvotes: meme.upvotes + 1,
-                            type: 'hot',
+                            type: `${TYPE.HOT}`,
                         }
                     } else {
                         return {
@@ -61,7 +66,7 @@ const memesSlice = createSlice({
                         return {
                             ...meme,
                             downvotes: meme.downvotes + 1,
-                            type: 'regular',
+                            type: `${TYPE.REGULAR}`,
                         }
                     } else {
                         return {
@@ -116,12 +121,12 @@ export const {
 
 export const fetchMemes = () => {
     return async (dispatch) => {
-        if (window.localStorage.hasOwnProperty('memes')) {
+        if (window.localStorage.hasOwnProperty(`${TXT.LOCAL_STORAGE_NAME}`)) {
             dispatch(getFromLocalStorage())
         } else {
             dispatch(save([]))
             dispatch(startFetch())
-            fetch('http://localhost:3000/api/memes')
+            fetch(`${TXT.API_ADDRESS}`)
                 .then((response) => response.json())
                 .then((memes) => dispatch(save(memes)))
                 .then((memes) => dispatch(saveToLocalStorage(memes.list)))
@@ -129,6 +134,6 @@ export const fetchMemes = () => {
     }
 }
 
-const memesReducer = memesSlice.reducer;
+const memesReducer = memesSlice.reducer
 
-export default memesReducer;
+export default memesReducer

@@ -5,7 +5,7 @@ const MEMES = [
         upvotes: 6,
         downvotes: 1,
         imgPath: 'milionaire',
-        type: 'hot',
+        type: 'HOT',
     },
     {
         id: '8aac85cf-09c5-44d1-984b-495cbfedd578',
@@ -13,7 +13,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 2,
         imgPath: 'lol',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '22d50b60-d90e-4b17-ad27-08fe503b88d4',
@@ -21,7 +21,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 2,
         imgPath: 'baby',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: 'f915ff21-712d-4c46-99d2-6abb58a91216',
@@ -29,7 +29,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 2,
         imgPath: 'drake',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: 'a35e56e5-4255-4832-8934-c074d1f4a7cd',
@@ -37,7 +37,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 2,
         imgPath: 'images',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '9529cdcd-3a79-4cb2-86ec-920a1a35d0d2',
@@ -45,7 +45,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 2,
         imgPath: 'js_thanks',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '70bdb06f-8e89-476c-87c3-88170cb13d39',
@@ -53,7 +53,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'depp',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: 'f52108d3-3938-4164-a859-f4236b8d6354',
@@ -61,7 +61,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'zoo',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: 'a60ccf02-7af9-4531-bee3-2d25de840a31',
@@ -69,7 +69,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'meme',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '6aea3fc6-00c9-45f4-aeff-6606f986ed06',
@@ -77,7 +77,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'mind_js',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: 'b87f1ef4-1516-4126-bc2b-d4d0a199536f',
@@ -85,7 +85,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'boromir',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '5ef868ba-264a-4710-b40a-53f4c4027581',
@@ -93,7 +93,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'this-is-javascript',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '53709f07-4fa0-4768-b493-41e6f8daa7b1',
@@ -101,7 +101,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'react-meme1_',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '65e0598c-6c3d-4ea3-8344-4d622ca2d9ea',
@@ -109,7 +109,7 @@ const MEMES = [
         upvotes: 0,
         downvotes: 0,
         imgPath: 'testing',
-        type: 'regular',
+        type: 'REGULAR',
     },
     {
         id: '7068a89f-53be-4ebd-8bd5-4f090ccf5cd0',
@@ -117,7 +117,7 @@ const MEMES = [
         upvotes: 1,
         downvotes: 11,
         imgPath: 'scoobydoo',
-        type: 'regular',
+        type: 'REGULAR',
     },
 ]
 

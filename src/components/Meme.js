@@ -63,7 +63,10 @@ const ButtonStyled = styled.div`
     align-items: center;
 `
 
-const upvoteStyle = { color: '#72af60', fontSize: '4em' }
+const upvoteStyle = {
+    color: '#72af60',
+    fontSize: '4em',
+}
 const downvoteStyle = { color: '#c35364', fontSize: '4em' }
 const likeStyle = { color: 'red', fontSize: '5em' }
 
@@ -75,8 +78,12 @@ function Meme(props) {
         <MemeStyled>
             <MemTitleStyled>{title}</MemTitleStyled>
             <MemImageContainerStyled>
-                <ImgStyled src={require(`../img/${imgPath}.jpg`)} alt="gówno" />
+                <ImgStyled
+                    src={require(`../img/${imgPath}.jpg`)}
+                    alt="Image problem"
+                />
             </MemImageContainerStyled>
+
             <ButtonsContainerStyled>
                 <ButtonStyled
                     onClick={() => {
