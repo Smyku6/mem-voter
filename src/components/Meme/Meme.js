@@ -7,7 +7,7 @@ import {
     removeFromFavorites,
     saveToLocalStorage,
     upvote,
-} from '../app/memesSlice'
+} from '../../app/memesSlice'
 import { useDispatch } from 'react-redux'
 import { BiUpvote, BiDownvote } from 'react-icons/bi'
 import { FcLikePlaceholder, FcLike } from 'react-icons/fc'

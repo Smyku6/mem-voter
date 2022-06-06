@@ -1,5 +1,5 @@
-import SECTIONS from '../constans/SECTIONS'
-import MenuButton from './MenuButton/MenuButton'
+import SECTIONS from '../../constans/SECTIONS'
+import MenuButton from '../MenuButton/MenuButton'
 
 const MenuButtons = () => {
     return (

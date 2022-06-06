@@ -4,7 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { createServer } from 'miragejs'
 import { fetchMemes } from './app/memesSlice'
-import MEMES from './constans/memes_mock'
+import MEMES from './mock_data/memes_mock'
 import { BallTriangle } from 'react-loader-spinner'
 import urlToTitle from './tools/urlToTitle'
 import COLOR from './constans/COLOR'
@@ -16,7 +16,7 @@ import {
     MemesListContainer,
     Menu,
 } from './components/MainAppStyledComponents/MainAppStyledComponents'
-import MenuButtons from './components/MenuButtons'
+import MenuButtons from './components/MenuButtons/MenuButtons'
 
 let server = createServer()
 server.get('/api/memes', MEMES)

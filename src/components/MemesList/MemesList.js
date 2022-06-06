@@ -1,6 +1,6 @@
-import Meme from '../Meme'
+import Meme from '../Meme/Meme'
 import { useSelector } from 'react-redux'
-import NoMemes from '../NoMemes'
+import NoMemes from '../ErrorBoundaries/NoMemes'
 import memeFilter from './memeFilter'
 
 function MemesList({ section }) {

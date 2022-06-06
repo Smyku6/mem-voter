@@ -7,9 +7,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { store } from './app/store'
 import { Provider } from 'react-redux'
 import MemesList from './components/MemesList/MemesList'
-import ScrollToTop from './components/scrollToTop'
+import ScrollToTop from './tools/scrollToTop'
 import TYPE from './constans/TYPE'
-import NotFound from './components/NotFound'
+import NotFound from './components/ErrorBoundaries/NotFound'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
