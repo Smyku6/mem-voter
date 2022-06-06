@@ -8,11 +8,11 @@ import { ButtonStyled } from './ButtonStyled'
 
 const upvoteStyle = {
     color: `${COLOR.GREEN}`,
-    fontSize: '4em',
+    fontSize: '2.5rem',
 }
 const downvoteStyle = {
     color: `${COLOR.RED_LIGHT}`,
-    fontSize: '4em',
+    fontSize: '2.5rem',
 }
 
 function ButtonVote({ type, id, votes }) {

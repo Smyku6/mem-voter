@@ -5,7 +5,7 @@ import COLOR from '../../constans/COLOR'
 
 const MemImageContainerStyled = styled.div`
     font-size: 3em;
-    width: 1104px;
+    width: 800px;
     background-color: ${COLOR.GRAY};
     display: flex;
     justify-content: center;

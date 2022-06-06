@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import COLOR from '../../constans/COLOR'
 
 const MemeTitleStyled = styled.div`
-    font-size: 3rem;
+    font-size: 1.5rem;
     padding: 1.5rem;
     color: ${COLOR.ORANGE};
 `

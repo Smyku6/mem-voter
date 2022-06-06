@@ -4,7 +4,7 @@ const MEMES = [
         title: 'Millionaire',
         upvotes: 6,
         downvotes: 1,
-        imgPath: 'millionaire',
+        imgPath: 'milionaire',
         type: 'HOT',
     },
     {

@@ -12,7 +12,7 @@ import { ButtonStyled } from './ButtonStyled'
 
 const likeStyle = {
     color: `${COLOR.RED}`,
-    fontSize: '5em',
+    fontSize: '3.5rem',
 }
 
 function ButtonLike({ id, favorite = false }) {

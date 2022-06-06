@@ -25,7 +25,7 @@ const MenuButtonStyled = styled(NavLink)`
     color: ${COLOR.LIME};
     border-radius: 1.5rem;
     width: 70%;
-    height: 12rem;
+    height: 8rem;
     font-size: 2.5rem;
     text-decoration: none;
 
