@@ -21,7 +21,7 @@ const ImgStyled = styled.img`
     object-fit: contain;
 `
 
-function MemeImage({ imgPath }) {
+function MemeImage({ imgPath, title }) {
     let imgFromWebsite = false
     let imgFromPath = true
     if (imgPath.includes('.jpg') || imgPath.includes('.jpg')) {
@@ -34,7 +34,7 @@ function MemeImage({ imgPath }) {
             {imgFromPath && (
                 <ImgStyled
                     src={require(`../../img/${imgPath}.jpg`)}
-                    alt="Image problem"
+                    alt={title}
                 />
             )}
 
@@ -45,6 +45,7 @@ function MemeImage({ imgPath }) {
 
 MemeImage.propTypes = {
     imgPath: PropTypes.string,
+    title: PropTypes.string,
 }
 
 export default MemeImage

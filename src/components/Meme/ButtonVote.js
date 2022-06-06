@@ -17,7 +17,6 @@ const downvoteStyle = {
 
 function ButtonVote({ type, id, votes }) {
     const dispatch = useDispatch()
-    console.log(type)
     if (type === 'upvote') {
         return (
             <ButtonStyled

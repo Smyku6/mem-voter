@@ -26,7 +26,7 @@ const MenuButtonStyled = styled(NavLink)`
     border-radius: 1.5rem;
     width: 70%;
     height: 8rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-decoration: none;
 
     &:hover {

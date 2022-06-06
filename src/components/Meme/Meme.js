@@ -33,7 +33,7 @@ function Meme({ props }) {
     return (
         <MemeContainer>
             <MemeTitle title={title} />
-            <MemeImage imgPath={imgPath} />
+            <MemeImage imgPath={imgPath} title={title} />
             <ButtonContainer>
                 <ButtonVote type="upvote" id={id} votes={upvotes} />
                 <ButtonVote type="downvote" id={id} votes={downvotes} />

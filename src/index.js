@@ -10,6 +10,7 @@ import MemesList from './components/MemesList/MemesList'
 import ScrollToTop from './tools/scrollToTop'
 import TYPE from './constans/TYPE'
 import NotFound from './components/ErrorBoundaries/NotFound'
+import MemeForm from './components/Form/MemeForm'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -40,6 +41,7 @@ root.render(
                             path={TYPE.FAVORITE}
                             element={<MemesList section={TYPE.FAVORITE} />}
                         />
+                        <Route path={'/meme-form'} element={<MemeForm />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
