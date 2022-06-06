@@ -24,7 +24,6 @@ const memesSlice = createSlice({
             const listFromLocalStorage = JSON.parse(
                 window.localStorage.getItem(`${TXT.LOCAL_STORAGE_NAME}`)
             )
-            console.log(listFromLocalStorage)
             return { ...state, list: listFromLocalStorage }
         },
 

@@ -17,7 +17,6 @@ const MenuButtonStyled = styled(NavLink)`
     justify-content: center;
     padding: 1em;
     margin: 1rem 2rem;
-    //background-color: ${COLOR.BLUE};
     ${(props) =>
         props.toggle
             ? `background-color: ${COLOR.BLUE};`
