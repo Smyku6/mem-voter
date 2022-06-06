@@ -16,7 +16,7 @@ import {
     MemesListContainer,
     Menu,
 } from './components/MainAppStyledComponents/MainAppStyledComponents'
-import MenuButtons from './components/MenuButtons'
+import MenuButtons from './components/MenuButtons/MenuButtons'
 
 let server = createServer()
 server.get('/api/memes', MEMES)
@@ -34,6 +34,7 @@ function App() {
         setTimeout(() => {
             setIsPending(!pending)
         }, 700)
+        // eslint-disable-next-line
     }, [])
 
     return (

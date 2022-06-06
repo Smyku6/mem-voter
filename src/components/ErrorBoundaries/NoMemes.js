@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import TXT from '../constans/TXT'
-import COLOR from '../constans/COLOR'
+import TXT from '../../constans/TXT'
+import COLOR from '../../constans/COLOR'
 
 const NoMemesStyled = styled.div`
     display: flex;
