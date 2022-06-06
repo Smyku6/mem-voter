@@ -5,6 +5,7 @@ const COLOR = {
     YELLOW: '#e8bf6a',
     YELLOW2: '#ffc66d',
     BLUE: '#365880',
+    BLUE2: '#8b98af',
     BLUE_HOVER: '#639ade',
     LIME: '#baba99',
 }

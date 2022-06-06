@@ -27,6 +27,10 @@ root.render(
                             element={<MemesList section={TYPE.REGULAR} />}
                         />
                         <Route
+                            path="/mem-voter"
+                            element={<MemesList section={TYPE.REGULAR} />}
+                        />
+                        <Route
                             path={TYPE.HOT}
                             element={<MemesList section={TYPE.HOT} />}
                         />

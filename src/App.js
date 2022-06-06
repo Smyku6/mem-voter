@@ -8,8 +8,6 @@ import MEMES from './constans/memes_mock'
 import { BallTriangle } from 'react-loader-spinner'
 import urlToTitle from './tools/urlToTitle'
 import COLOR from './constans/COLOR'
-import SECTIONS from './constans/SECTIONS'
-import MenuButton from './components/MenuButton/MenuButton'
 import SectionBar from './components/SectionBar/SectionBar'
 import MenuTitle from './components/MenuTitle/MenuTitle'
 import {
@@ -18,6 +16,7 @@ import {
     MemesListContainer,
     Menu,
 } from './components/MainAppStyledComponents/MainAppStyledComponents'
+import MenuButtons from './components/MenuButtons'
 
 let server = createServer()
 server.get('/api/memes', MEMES)
@@ -43,10 +42,7 @@ function App() {
                 <SectionBar text={urlToTitle(url)} />
                 <Menu>
                     <MenuTitle />
-
-                    {SECTIONS.map((section, index) => (
-                        <MenuButton key={index} section={section} />
-                    ))}
+                    <MenuButtons />
                 </Menu>
 
                 <MemesListContainer>
