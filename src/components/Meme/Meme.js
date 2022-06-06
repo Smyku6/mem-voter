@@ -13,8 +13,9 @@ const MemeContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3rem;
     border-radius: 2rem;
+    width: inherit;
+    margin: 2rem 0;
 `
 
 const ButtonContainer = styled.div`

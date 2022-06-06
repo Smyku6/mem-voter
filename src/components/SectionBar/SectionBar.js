@@ -4,7 +4,8 @@ import COLOR from '../../constans/COLOR'
 const SectionBarStyled = styled.div`
     position: fixed;
     height: 8rem;
-    width: 100rem;
+    width: inherit;
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
