@@ -1,18 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { saveToLocalStorage, upvote, downvote } from '../../app/memesSlice'
 import { useDispatch } from 'react-redux'
 import { BiDownvote, BiUpvote } from 'react-icons/bi'
 import COLOR from '../../constans/COLOR'
-
-const ButtonStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    cursor: pointer;
-    align-items: center;
-`
+import { ButtonStyled } from './ButtonStyled'
 
 const upvoteStyle = {
     color: `${COLOR.GREEN}`,

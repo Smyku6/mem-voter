@@ -1,17 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {
-    addToFavorites,
-    removeFromFavorites,
-    saveToLocalStorage,
-} from '../../app/memesSlice'
-import { useDispatch } from 'react-redux'
-import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
 import MemeTitle from './MemeTitle'
 import MemeImage from './MemeImage'
 import COLOR from '../../constans/COLOR'
 import ButtonVote from './ButtonVote'
+import ButtonLike from './ButtonLike'
 
 const MemeContainer = styled.div`
     background-color: ${COLOR.GRAY};
@@ -32,22 +26,8 @@ const ButtonContainer = styled.div`
     align-items: center;
 `
 
-const ButtonStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    cursor: pointer;
-    align-items: center;
-`
-
-const likeStyle = {
-    color: `${COLOR.RED}`,
-    fontSize: '5em',
-}
-
 function Meme({ props }) {
     const { id, title, upvotes, downvotes, imgPath, favorite } = props
-    const dispatch = useDispatch()
 
     return (
         <MemeContainer>
@@ -56,25 +36,8 @@ function Meme({ props }) {
             <ButtonContainer>
                 <ButtonVote type="upvote" id={id} votes={upvotes} />
                 <ButtonVote type="downvote" id={id} votes={downvotes} />
-                {!favorite ? (
-                    <ButtonStyled
-                        onClick={() => {
-                            dispatch(addToFavorites(id))
-                            dispatch(saveToLocalStorage())
-                        }}
-                    >
-                        <FcLikePlaceholder style={likeStyle} />
-                    </ButtonStyled>
-                ) : (
-                    <ButtonStyled
-                        onClick={() => {
-                            dispatch(removeFromFavorites(id))
-                            dispatch(saveToLocalStorage())
-                        }}
-                    >
-                        <FcLike style={likeStyle} />
-                    </ButtonStyled>
-                )}
+
+                <ButtonLike id={id} favorite={favorite} />
             </ButtonContainer>
         </MemeContainer>
     )

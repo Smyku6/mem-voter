@@ -1,10 +1,10 @@
 const MEMES = [
     {
         id: '24dddc85-1007-4850-8d06-71b4d464afe2',
-        title: 'Milionaire',
+        title: 'Millionaire',
         upvotes: 6,
         downvotes: 1,
-        imgPath: 'milionaire',
+        imgPath: 'millionaire',
         type: 'HOT',
     },
     {
