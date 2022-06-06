@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import COLOR from '../../constans/COLOR'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import {
     sectionCounter,
     sectionTitleAndIcon,
@@ -17,7 +17,12 @@ const MenuButtonStyled = styled(NavLink)`
     justify-content: center;
     padding: 1em;
     margin: 1rem 2rem;
-    background-color: ${COLOR.BLUE};
+    //background-color: ${COLOR.BLUE};
+    ${(props) =>
+        props.toggle
+            ? `background-color: ${COLOR.BLUE};`
+            : `background-color: ${COLOR.BLUE2};`}
+
     color: ${COLOR.LIME};
     border-radius: 1.5rem;
     width: 70%;
@@ -32,6 +37,8 @@ const MenuButtonStyled = styled(NavLink)`
 
 const MenuButton = ({ section }) => {
     const dispatch = useDispatch()
+    const location = useLocation()
+    const activeUrl = location.pathname
 
     const url = sectionUrl(section)
     const TitleAndIcon = sectionTitleAndIcon(section)
@@ -41,6 +48,7 @@ const MenuButton = ({ section }) => {
         <MenuButtonStyled
             to={url}
             onClick={() => dispatch(setSelection(section))}
+            toggle={activeUrl === `/${section.toLowerCase()}`}
         >
             {TitleAndIcon}
             <CounterText count={count} />
