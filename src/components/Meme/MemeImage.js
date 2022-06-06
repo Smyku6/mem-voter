@@ -22,12 +22,23 @@ const ImgStyled = styled.img`
 `
 
 function MemeImage({ imgPath }) {
+    let imgFromWebsite = false
+    let imgFromPath = true
+    if (imgPath.includes('.jpg') || imgPath.includes('.jpg')) {
+        imgFromWebsite = true
+        imgFromPath = false
+    }
+
     return (
         <MemImageContainerStyled>
-            <ImgStyled
-                src={require(`../../img/${imgPath}.jpg`)}
-                alt="Image problem"
-            />
+            {imgFromPath && (
+                <ImgStyled
+                    src={require(`../../img/${imgPath}.jpg`)}
+                    alt="Image problem"
+                />
+            )}
+
+            {imgFromWebsite && <ImgStyled src={imgPath} alt="Image problem" />}
         </MemImageContainerStyled>
     )
 }
