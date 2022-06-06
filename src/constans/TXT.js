@@ -10,7 +10,8 @@ const TXT = {
     SECTION_REGULAR: 'REGULAR MEMES',
     SECTION_FAVORITE: 'FAVORITE MEMES',
     LOCAL_STORAGE_NAME: 'MemesLS',
-    REDUX_STORE_NAME: 'memes',
+    REDUX_STORE_NAME_MEME: 'memes',
+    REDUX_STORE_NAME_SECTION: 'sections',
     API_ADDRESS: 'http://localhost:3000/api/memes',
 }
 

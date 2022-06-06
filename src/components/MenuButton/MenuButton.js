@@ -7,6 +7,8 @@ import {
     sectionUrl,
 } from './MenuButtonTools'
 import CounterText from './CounterText'
+import { useDispatch } from 'react-redux'
+import { setSelection } from '../../app/sectionSlice'
 
 const MenuButtonStyled = styled(NavLink)`
     display: flex;
@@ -29,12 +31,17 @@ const MenuButtonStyled = styled(NavLink)`
 `
 
 const MenuButton = ({ section }) => {
+    const dispatch = useDispatch()
+
     const url = sectionUrl(section)
     const TitleAndIcon = sectionTitleAndIcon(section)
     const count = sectionCounter(section)
 
     return (
-        <MenuButtonStyled to={url}>
+        <MenuButtonStyled
+            to={url}
+            onClick={() => dispatch(setSelection(section))}
+        >
             {TitleAndIcon}
             <CounterText count={count} />
         </MenuButtonStyled>

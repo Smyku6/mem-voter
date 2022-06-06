@@ -10,7 +10,7 @@ const initialState = {
 const votesDifference = 5
 
 const memesSlice = createSlice({
-    name: `${TXT.REDUX_STORE_NAME}`,
+    name: `${TXT.REDUX_STORE_NAME_MEME}`,
     initialState,
     reducers: {
         saveToLocalStorage: (state) => {

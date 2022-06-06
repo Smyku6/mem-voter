@@ -1,7 +1,7 @@
 import SECTIONS from '../constans/SECTIONS'
 import MenuButton from './MenuButton/MenuButton'
 
-const MenuButtons = ({ section }) => {
+const MenuButtons = () => {
     return (
         <>
             {SECTIONS.map((section, index) => (
