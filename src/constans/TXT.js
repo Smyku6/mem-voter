@@ -13,6 +13,8 @@ const TXT = {
     REDUX_STORE_NAME_MEME: 'memes',
     REDUX_STORE_NAME_SECTION: 'sections',
     API_ADDRESS: 'http://localhost:3000/api/memes',
+    ERROR_404: 'ERROR',
+    ERROR_PATH: 'Wrong path.',
 }
 
 export default TXT

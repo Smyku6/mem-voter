@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import MemesList from './components/MemesList/MemesList'
 import ScrollToTop from './components/scrollToTop'
 import TYPE from './constans/TYPE'
+import NotFound from './components/NotFound'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -18,6 +19,7 @@ root.render(
                 <ScrollToTop />
                 <Routes>
                     <Route path="/" element={<App />}>
+                        <Route path="*" element={<NotFound />} />
                         <Route
                             path="/"
                             element={<MemesList section={TYPE.REGULAR} />}
