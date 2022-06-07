@@ -37,6 +37,11 @@ const memesSlice = createSlice({
             state.list = payload
         },
 
+        submitNewMeme: (state, action) => {
+            const { payload } = action
+            return { ...state, list: [payload, ...state.list] }
+        },
+
         upvote: (state, { payload }) => {
             const newMemesList = state.list.map((meme) => {
                 if (meme.id === payload) {
@@ -116,6 +121,7 @@ export const {
     removeFromFavorites,
     saveToLocalStorage,
     getFromLocalStorage,
+    submitNewMeme,
 } = memesSlice.actions
 
 export const fetchMemes = () => {

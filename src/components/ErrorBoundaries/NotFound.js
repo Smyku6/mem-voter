@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import COLOR from '../../constans/COLOR'
 import TXT from '../../constans/TXT'
-import error404 from '../../img/404_not_found.png'
+import error404 from '../../img/404_not_found.jpg'
 
 const NoFoundStyled = styled.div`
     display: flex;

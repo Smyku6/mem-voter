@@ -34,6 +34,7 @@ function App() {
         setTimeout(() => {
             setIsPending(!pending)
         }, 700)
+        // eslint-disable-next-line
     }, [])
 
     return (

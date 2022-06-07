@@ -3,7 +3,7 @@ import COLOR from '../../constans/COLOR'
 import TXT from '../../constans/TXT'
 
 const MenuTitleStyled = styled.div`
-    font-size: 6rem;
+    font-size: 3rem;
     text-align: center;
     color: ${COLOR.YELLOW};
     margin: 2rem;

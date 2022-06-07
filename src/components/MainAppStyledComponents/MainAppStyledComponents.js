@@ -33,7 +33,7 @@ export const Menu = styled.div`
 
 export const MemesListContainer = styled.div`
     padding-left: 25rem;
-    padding-top: 10rem;
+    padding-top: 8rem;
     min-height: 100vh;
     width: 100%;
     background-color: ${COLOR.LIGHT_GRAY};

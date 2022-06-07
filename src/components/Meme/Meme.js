@@ -1,52 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {
-    addToFavorites,
-    downvote,
-    removeFromFavorites,
-    saveToLocalStorage,
-    upvote,
-} from '../../app/memesSlice'
-import { useDispatch } from 'react-redux'
-import { BiUpvote, BiDownvote } from 'react-icons/bi'
-import { FcLikePlaceholder, FcLike } from 'react-icons/fc'
+import MemeTitle from './MemeTitle'
+import MemeImage from './MemeImage'
+import COLOR from '../../constans/COLOR'
+import ButtonVote from './ButtonVote'
+import ButtonLike from './ButtonLike'
 
-const MemeStyled = styled.div`
-    background-color: #3c3f41;
+const MemeContainer = styled.div`
+    background-color: ${COLOR.GRAY};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3rem;
     border-radius: 2rem;
+    width: inherit;
+    margin: 2rem 0;
 `
 
-const MemTitleStyled = styled.div`
-    font-size: 3rem;
-    padding: 1.5rem;
-    color: #cc7832;
-`
-
-const MemImageContainerStyled = styled.div`
-    font-size: 3em;
-    width: 1104px;
-    background-color: #3c3f41;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    padding: 0 2rem;
-    border-radius: 2rem;
-`
-const ImgStyled = styled.img`
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-`
-
-const ButtonsContainerStyled = styled.div`
+const ButtonContainer = styled.div`
     width: 100%;
     padding: 2rem;
     display: flex;
@@ -55,75 +27,20 @@ const ButtonsContainerStyled = styled.div`
     align-items: center;
 `
 
-const ButtonStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    cursor: pointer;
-    align-items: center;
-`
-
-const upvoteStyle = {
-    color: '#72af60',
-    fontSize: '4em',
-}
-const downvoteStyle = { color: '#c35364', fontSize: '4em' }
-const likeStyle = { color: 'red', fontSize: '5em' }
-
-function Meme(props) {
-    const { id, title, upvotes, downvotes, imgPath, favorite } = props.props
-    const dispatch = useDispatch()
+function Meme({ props }) {
+    const { id, title, upvotes, downvotes, imgPath, favorite } = props
 
     return (
-        <MemeStyled>
-            <MemTitleStyled>{title}</MemTitleStyled>
-            <MemImageContainerStyled>
-                <ImgStyled
-                    src={require(`../img/${imgPath}.jpg`)}
-                    alt="Image problem"
-                />
-            </MemImageContainerStyled>
+        <MemeContainer>
+            <MemeTitle title={title} />
+            <MemeImage imgPath={imgPath} title={title} />
+            <ButtonContainer>
+                <ButtonVote type="upvote" id={id} votes={upvotes} />
+                <ButtonVote type="downvote" id={id} votes={downvotes} />
 
-            <ButtonsContainerStyled>
-                <ButtonStyled
-                    onClick={() => {
-                        dispatch(upvote(id))
-                        dispatch(saveToLocalStorage())
-                    }}
-                >
-                    <div style={upvoteStyle}>{upvotes}</div>
-                    <BiUpvote style={upvoteStyle} />
-                </ButtonStyled>
-                <ButtonStyled
-                    onClick={() => {
-                        dispatch(downvote(id))
-                        dispatch(saveToLocalStorage())
-                    }}
-                >
-                    <div style={downvoteStyle}>{downvotes}</div>
-                    <BiDownvote style={downvoteStyle} />
-                </ButtonStyled>
-                {!favorite ? (
-                    <ButtonStyled
-                        onClick={() => {
-                            dispatch(addToFavorites(id))
-                            dispatch(saveToLocalStorage())
-                        }}
-                    >
-                        <FcLikePlaceholder style={likeStyle} />
-                    </ButtonStyled>
-                ) : (
-                    <ButtonStyled
-                        onClick={() => {
-                            dispatch(removeFromFavorites(id))
-                            dispatch(saveToLocalStorage())
-                        }}
-                    >
-                        <FcLike style={likeStyle} />
-                    </ButtonStyled>
-                )}
-            </ButtonsContainerStyled>
-        </MemeStyled>
+                <ButtonLike id={id} favorite={favorite} />
+            </ButtonContainer>
+        </MemeContainer>
     )
 }
 

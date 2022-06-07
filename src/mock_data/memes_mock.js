@@ -1,7 +1,7 @@
 const MEMES = [
     {
         id: '24dddc85-1007-4850-8d06-71b4d464afe2',
-        title: 'Milionaire',
+        title: 'Millionaire',
         upvotes: 6,
         downvotes: 1,
         imgPath: 'milionaire',
@@ -119,6 +119,14 @@ const MEMES = [
         imgPath: 'scoobydoo',
         type: 'REGULAR',
     },
+    {
+        id: '6719864d-8405-4c93-bf32-085876380785',
+        title: 'Tiger Bonzo website',
+        upvotes: 4,
+        downvotes: 0,
+        imgPath:
+            'https://samequizy.pl/wp-content/uploads/2018/05/filing_images_f304cf8b2c28.jpg',
+        type: 'REGULAR',
+    },
 ]
-
 export default MEMES
