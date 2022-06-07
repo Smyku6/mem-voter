@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+Mem serwis
+Przy użyciu React zbuduj aplikację wg. poniższej specyfikacji.
+Projekt należy wgrać na GitHub , a następnie wysłać prowadzącemu e-mail z
+linkiem.
+Zadaniem aplikacji jest wyświetlanie “memów*” i możliwość dawania upvote i downvote.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Aplikacja ma zawierać route ‘/hot’ i ‘/regular’
+2. Memy z ilością (upvote - downvote > 5) mają trafiać na route ‘/hot’, pozostałe znajdują
+się na ‘regualr’.
+3. Dodaj proste menu, które pozwoli przełączać się między sekcjami.
+4. Baza memów ma być stała. Zalecana tablica postaci:
+```js
+[
+  {
+    title: “Mem 1”,
+    upvotes: 6,
+    downvotes: 0,
+    img: “path/to/image1.png”,
+  },
+  {
+    title: “Mem 2”,
+    upvotes: 1,
+    downvotes: 2,
+    img: “path/to/image2.png”,
+  },
+....
+]
+```
+5. Utwórz komponent Mem, który wyświetli tytuł, liczbę upvotes/downvotes i ew. obrazek,
+oraz kontrolki do kliknięcia upvote, downvote.
+6. Wygeneruj listę z komponentu Mem i wyświetl w ‘/hot’ i ‘/regular’
+7. Na odpowiednich routach przefiltruj listę z bazą memów zgodnie z zasadami z pkt 2.
+8. Filtrowanie powinno działać “live”. Przykład: jeśli kliknę downvote i (upvote - downvote)
+da 5, mem powinien znikniąć ze listy wyświetlanej na HOT.
+9. Jeśli jestem na route ‘/hot’ przycisk “HOT” powinien się odróżniać od “REGULAR” i
+odwrotnie.
+10. Lista memów powinna być przewijalna
+11. Oznaczenie mema gwiazdką (wymagane nowe pole w bazie memów).
+12**. Dodaj dodatkowy route z formularzem do dodawania mema.
+* może to być downolny obrazek (podawany przez link, lub zapisany na dysku i podany
+jako ścieżka). Opcjonalnie zamiast obrazka można wyświetlić tylko tytuł mema.
+** zadanie opcjonalne
+Walory dodatkowe:
+1. Opis aplikacji i instrukcja uruchomienia w README.md.
+2. Kod jest czysty i jednolicie sformatowany.
+3. Eleganckie ostylowanie aplikacji.
+4. Zastosowanie Redux.
 
-## Available Scripts
+Przykładowy wygląd aplikacji
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/75560322/172272554-6a37dfd2-2b3a-4a3b-8c2d-96736a9bd970.png)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tips:
+- Bądź kreatywny. Trzymaj się głównych założeń projektu, ale nie bój się własnej inwencji.
+- Zalecam dodanie prettier’a.
+- Pracuj na GIT. Będzie łatwo śledzić zmiany i w razie problemu cofnąć się do
+poprzedniej wersji.
+- Skorzystaj z biblioteki UI (np. https://material-ui.com/)
+- Zacznij prosto. Spróbuj zrobić samą listę memów, bez upvote/downvote z na jednej
+stronie. Funkcjonalności dodawaj przyrostowo.
+- W wersji najprostrzej umieść memy w stanie komponentu, który będzie wyświetlał
+komponent z Hot i Regular (prawdopodobnie App.js).
+- Zamiast filtrowania memów w każdym z komponentów spróbuj rozdzielić memy na dwie
+tablice (hot, regular) i odpowiednio “przenosić elementy”.
+np. setMemes({regular: INITIAL_ARRAY, hot: []});
+- W przypadku użycia Redux pamiętaj o nie mutowaniu stanu!
+- Zwróć uwagę jak działa funkcja JS (map i filter).
+- Wodotryski w postaci stylowania, czy bonusowych zadań zostaw na koniec.
