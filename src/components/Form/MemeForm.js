@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { saveToLocalStorage, submitNewMeme } from '../../app/memesSlice'
 import { useDispatch } from 'react-redux'
@@ -17,9 +17,6 @@ import {
 const MemeForm = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-
-    const [imageExist, setImageExist] = useState(false)
-
     const [formData, setFormData] = useState({
         id: '',
         title: '',
@@ -37,39 +34,33 @@ const MemeForm = () => {
         imgPath: 'no-image',
         type: 'REGULAR',
     })
+    const [imageExist, setImageExist] = useState(false)
     const [error, setError] = useState(false)
     const [preview, setPreview] = useState(false)
 
     function checkImage(url) {
-        var image = new Image()
+        const image = new Image()
         image.onload = function () {
             if (this.width > 0) {
                 setImageExist(true)
                 setPreviewData({ ...formData, imgPath: url })
+                setPreview(true)
+                setError(false)
             }
         }
         image.onerror = function () {
             setImageExist(false)
             setPreviewData({ ...formData, imgPath: 'no-image' })
+            setPreview(true)
+            setError(true)
         }
         image.src = url
     }
 
-    useEffect(() => {
-        if (imageExist) {
-            setPreviewData({ ...formData, imgPath: formData.imgPath })
-            setPreview(true)
-            setError(false)
-        } else {
-            setPreview(true)
-            setPreviewData({ ...formData, imgPath: 'no-image' })
-            setError(true)
-        }
-    }, [imageExist])
-
     const handleSubmit = (e) => {
         e.preventDefault()
         setFormData({ ...formData, id: uuidv4() })
+        checkImage(formData.imgPath)
         dispatch(submitNewMeme(formData))
         dispatch(saveToLocalStorage())
         navigate('/regular')
@@ -122,7 +113,7 @@ const MemeForm = () => {
                     <ButtonStyled onClick={handlePreview}>
                         {TXT.FORM_PREVIEW_BUTTON}
                     </ButtonStyled>
-                    {preview && (
+                    {imageExist && (
                         <InputSubmitStyled
                             type="submit"
                             value={TXT.FORM_SUBMIT_BUTTON}
