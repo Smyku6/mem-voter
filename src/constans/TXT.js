@@ -21,6 +21,7 @@ const TXT = {
     FORM_MEM_URL: 'Paste URL (jpg or png)',
     FORM_PREVIEW_BUTTON: 'CLICK TO PREVIEW YOUR MEME',
     FORM_SUBMIT_BUTTON: 'CLICK TO SUBMIT YOUR MEME',
+    FORM_ERROR: 'Something went wrong, check image url.',
 }
 
 export default TXT

@@ -21,10 +21,10 @@ const ImgStyled = styled.img`
     object-fit: contain;
 `
 
-function MemeImage({ imgPath, title }) {
+function MemeImage({ imgPath = 'no-image', title }) {
     let imgFromWebsite = false
     let imgFromPath = true
-    if (imgPath.includes('.jpg') || imgPath.includes('.jpg')) {
+    if (imgPath.includes('.jpg') || imgPath.includes('.png')) {
         imgFromWebsite = true
         imgFromPath = false
     }
@@ -38,7 +38,7 @@ function MemeImage({ imgPath, title }) {
                 />
             )}
 
-            {imgFromWebsite && <ImgStyled src={imgPath} alt="Image problem" />}
+            {imgFromWebsite && <ImgStyled src={imgPath} alt={title} />}
         </MemImageContainerStyled>
     )
 }
